@@ -5,7 +5,7 @@ version = 0.1
 [default.global.parameters]
 stack_name = "tomcat-event-ticketing"
 region = "us-east-1"
-
+template_file = "template.yaml"
 [default.build]
 [default.build.parameters]
 cached = true

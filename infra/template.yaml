@@ -36,7 +36,7 @@ Resources:
   EventTicketingTable:
     Type: AWS::DynamoDB::Table
     Properties:
-      TableName: !Sub "tomcat-${Environment}-events"   # ← Optional: name includes env
+      TableName: !Sub "tomcat-${Environment}-events"
       AttributeDefinitions:
         - AttributeName: PK
           AttributeType: S
@@ -65,7 +65,7 @@ Resources:
   RegisterFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: src/handlers/register/
+      CodeUri: ../src/handlers/register/
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Ref EventTicketingTable
@@ -80,7 +80,7 @@ Resources:
   ListEventsFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: src/handlers/list_events/
+      CodeUri: ../src/handlers/list_events/
       Policies:
         - DynamoDBReadPolicy:
             TableName: !Ref EventTicketingTable
@@ -95,7 +95,7 @@ Resources:
   GetRegistrationsFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: src/handlers/get_registrations/
+      CodeUri: ../src/handlers/get_registrations/
       Policies:
         - DynamoDBReadPolicy:
             TableName: !Ref EventTicketingTable
@@ -110,7 +110,7 @@ Resources:
   CancelRegistrationFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: src/handlers/cancel_registration/
+      CodeUri: ../src/handlers/cancel_registration/
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Ref EventTicketingTable
